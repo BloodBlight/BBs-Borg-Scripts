@@ -1,7 +1,7 @@
 ### This script:
  - Creates takes a snapshot of my LizardFS metadata.
  - Adds that snapshot to an encrypted borg repository.
- - Removed and backups older than 7 days.
+ - Removed any backups older than 7 days.
  - Syncs the encrypted borg repo to a backblaze bucket.
 
 ### Prerequisites:
