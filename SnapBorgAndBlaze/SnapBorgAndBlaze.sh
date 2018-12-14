@@ -8,8 +8,8 @@ rsync -vart /var/lib/mfs/* /LizardFS/BorgMetaBackup/Snap/ >> /LizardFS/BorgMetaB
 
 echo Starting backup...  >> /LizardFS/BorgMetaBackup/LastBackup.txt
 export BORG_PASSPHRASE=### Your Password Here! ###
-/LizardFS/Files/MediaStore/Backups/borg-linux64 create -xv --stats --progress --compression lzma,9 /LizardFS/BorgMetaBackup/Borg::$DATE /LizardFS/BorgMetaBackup/Snap 2>&1 /LizardFS/BorgMetaBackup/LastBackup.txt
-/LizardFS/Files/MediaStore/Backups/borg-linux64 prune --keep-within 7d /LizardFS/BorgMetaBackup/Borg >> /LizardFS/BorgMetaBackup/LastBackup.txt
+borg create -xv --stats --progress --compression lzma,9 /LizardFS/BorgMetaBackup/Borg::$DATE /LizardFS/BorgMetaBackup/Snap 2>&1 /LizardFS/BorgMetaBackup/LastBackup.txt
+borg prune --keep-within 7d /LizardFS/BorgMetaBackup/Borg >> /LizardFS/BorgMetaBackup/LastBackup.txt
 
 echo Uploading files... >> /LizardFS/BorgMetaBackup/LastBackup.txt
 ### Don't forget to create this file!
